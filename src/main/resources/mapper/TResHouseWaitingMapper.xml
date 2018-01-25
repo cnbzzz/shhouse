@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jufangbao.house.shhouse.mapper.TResHouseWaitingMapper">
+  <resultMap id="BaseResultMap" type="cn.jufangbao.house.shhouse.model.TResHouseWaiting">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="oid" jdbcType="VARCHAR" property="oid" />
+    <result column="cname" jdbcType="VARCHAR" property="cname" />
+    <result column="city" jdbcType="VARCHAR" property="city" />
+    <result column="floor" jdbcType="VARCHAR" property="floor" />
+    <result column="unit" jdbcType="VARCHAR" property="unit" />
+    <result column="hnum" jdbcType="VARCHAR" property="hnum" />
+    <result column="attr" jdbcType="VARCHAR" property="attr" />
+    <result column="rent" jdbcType="VARCHAR" property="rent" />
+    <result column="price" jdbcType="BIGINT" property="price" />
+    <result column="callname" jdbcType="VARCHAR" property="callname" />
+    <result column="phonenum" jdbcType="BIGINT" property="phonenum" />
+    <result column="coid" jdbcType="VARCHAR" property="coid" />
+    <result column="aoid" jdbcType="VARCHAR" property="aoid" />
+    <result column="cuoid" jdbcType="VARCHAR" property="cuoid" />
+    <result column="cdate" jdbcType="TIMESTAMP" property="cdate" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+</mapper>

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, 
+                                     initial-scale=1.0, 
+                                     maximum-scale=1.0, 
+                                     user-scalable=no">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/init.css" rel="stylesheet">
+        
+
+ 
+        <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+        <script src="js/jquery.min.js" charset="utf-8"></script>
+         
+        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+        <script src="js/bootstrap.min.js" charset="utf-8"></script>
+        <script src="js/underscore.js" charset="utf-8"></script>
+        <script src="js/assist.js" charset="utf-8"></script>
+        <script src="js/base.js" charset="utf-8"></script>
+        <title>房源</title>
+    </head>
+    <body>
+		<nav class="container navbar-fixed-top navbar">
+        	<div class="row clearfix navbox">
+                <div class="col-xs-1">
+                    <h4><i class="fa fa-angle-left"></i></h4>
+                </div>
+                <div class="col-xs-8">
+                    <div class="input-group">
+                        <div class="input-group-btn">
+                            <button type="button" class="btn btn-default 
+                            dropdown-toggle" data-toggle="dropdown">买房
+                                <span class="caret"></span>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li onClick="sel(this)" data-value="1">
+                                    <a href="#">租房</a>
+                                </li>
+                                <li onClick="sel(this)" data-value="0">
+                                    <a href="#">买房</a>
+                                </li>
+                             </ul>
+                        </div>
+                        <input type="text" class="form-control" id="searchkeystr">
+                    </div>
+                </div>
+                <div class="col-xs-3">
+                    <button type="button" class="btn btn-primary" id="serachbutton">搜索</button>
+                </div>
+                
+            </div>
+            
+            <div class="row clearfix navmenu">
+                <div class="col-xs-3">
+        			<h4 data-target="area">区域<i class="fa fa-sort-down"></i></h4>
+                </div>
+                <div class="col-xs-3">
+        			<h4 data-target="price">价格<i class="fa fa-sort-down"></i></h4>
+                </div>
+                <div class="col-xs-3">
+        			<h4 data-target="house">房型<i class="fa fa-sort-down"></i></h4>
+                </div>
+                <div class="col-xs-3">
+        			<h4 data-target="more">更多<i class="fa fa-sort-down"></i></h4>
+                </div>
+                
+                <div class="col-xs-12 area">
+                	<div class="row clearfix">
+                    	<div class="col-xs-4 qybox1">
+                        	<ul class="list-unstyled">
+                                <!--li>区域</li>
+                                <li>地铁</li-->
+                            </ul>
+                        </div>
+                        <div class="col-xs-4 qybox2">
+                        	<ul class="list-unstyled">
+                                
+                            </ul>
+                        </div>
+                        <div class="col-xs-4 qybox3">
+                        	<ul class="list-unstyled">
+                                
+                            </ul>
+                        </div>
+                    </div>
+        			
+                </div>
+                
+                <div class="col-xs-12 price">
+        			<ul class="list-unstyled">
+                        <li><a href="#" data-value="">不限</a></li>
+                        <li><a href="#" data-value='"endprice":"200000000","startprice":"0"'>200万以下</a></li>
+                        <li><a href="#" data-value='"endprice":"250000000","startprice":"200000000"'>200-250万</a></li>
+                        <li><a href="#" data-value='"endprice":"300000000","startprice":"250000000"'>250-300万</a></li>
+                        <li><a href="#" data-value='"endprice":"400000000","startprice":"300000000"'>300-400万</a></li>
+                        <li><a href="#" data-value='"endprice":"500000000","startprice":"400000000"'>400-500万</a></li>
+                        <li><input type="text" class="minprice" placeholder="最低价格">万-<input type="text" class="maxprice" placeholder="最高价格">万<button type="button" class="btn btn-primary">确定</button></li>
+                    </ul>
+                    
+                </div>
+                
+                <div class="col-xs-12 house">
+        			<ul class="list-unstyled">
+                        <li>不限 <label class="pull-right"><input type="checkbox" value="0"></label></li>
+                        <li>一室 <label class="pull-right"><input type="checkbox" value="1"></label></li>
+                        <li>二室 <label class="pull-right"><input type="checkbox" value="2"></label></li>
+                        <li>三室 <label class="pull-right"><input type="checkbox" value="3"></label></li>
+                        <li>四室 <label class="pull-right"><input type="checkbox" value="4"></label></li>
+                        <li>五室 <label class="pull-right"><input type="checkbox" value="5"></label></li>
+                        <li>
+                        	<button type="button" class="btn btn-primary btn-block">确定</button>
+                        </li>
+                    </ul>
+
+                </div>
+                
+                <div class="col-xs-12 more">
+        			<ul class="list-unstyled abmore">
+                        <li>朝向</li>
+                        <li>
+                        	<button type="button" class="btn btn-default btn-xs col-xs-3" data-name='orie' data-value='"dictid":1'>朝东</button>
+                            <button type="button" class="btn btn-default btn-xs col-xs-3" data-name='orie' data-value='"dictid":2'>朝南</button>
+                            <button type="button" class="btn btn-default btn-xs col-xs-3" data-name='orie' data-value='"dictid":3'>朝北</button>
+                        </li>
+                        <li>
+                        	<button type="button" class="btn btn-default btn-xs col-xs-3" data-name='orie' data-value='"dictid":4'>朝西</button>
+                            <button type="button" class="btn btn-default btn-xs col-xs-3" data-name='orie' data-value='"dictid":5'>东南</button>
+                        </li>
+                        <li>面积</li>
+                        <li>
+                        	<button type="button" class="btn btn-default btn-xs col-xs-3" data-name='area' data-value='"dictid":1'>50m<sup>2</sup></button>
+                            <button type="button" class="btn btn-default btn-xs col-xs-3" data-name='area' data-value='"dictid":1'>50-70m<sup>2</sup></button>
+                            <button type="button" class="btn btn-default btn-xs col-xs-3" data-name='area' data-value='"dictid":1'>70-90m<sup>2</sup></button>
+                        </li>
+                        <li>
+                        	<button type="button" class="btn btn-default btn-xs col-xs-3" data-name='area' data-value='"dictid":1'>90-110m<sup>2</sup></button>
+                            <button type="button" class="btn btn-default btn-xs col-xs-3" data-name='area' data-value='"dictid":1'>110-130m<sup>2</sup></button>
+                            <button type="button" class="btn btn-default btn-xs col-xs-3" data-name='area' data-value='"dictid":1'>130-150m<sup>2</sup></button>
+                        </li>
+                        <li>
+                        	<button type="button" class="btn btn-default btn-xs col-xs-3" data-name='area' data-value='"dictid":1'>150-200m<sup>2</sup></button>
+                            <button type="button" class="btn btn-default btn-xs col-xs-3" data-name='area' data-value='"dictid":1'>200m<sup>2</sup>以上</button>
+                        </li>
+                        <li>标签</li>
+                        <li>
+                        	<button type="button" class="btn btn-default btn-xs col-xs-3" data-name='label' data-value='"dictid":1'>满五年</button>
+                            <button type="button" class="btn btn-default btn-xs col-xs-3" data-name='label' data-value='"dictid":1'>满两年</button>
+                            <button type="button" class="btn btn-default btn-xs col-xs-3" data-name='label' data-value='"dictid":1'>近地铁</button>
+                        </li>
+                        <li>
+                        	<button type="button" class="btn btn-default btn-xs col-xs-3" data-name='label' data-value='"dictid":1'>不限购</button>
+                            <button type="button" class="btn btn-default btn-xs col-xs-3" data-name='label' data-value='"dictid":1'>新上</button>
+                            <button type="button" class="btn btn-default btn-xs col-xs-3" data-name='label' data-value='"dictid":1'>随时看房</button>
+                        </li>
+                        <li>
+                        	<button type="button" class="btn btn-default btn-xs col-xs-3" data-name='label' data-value='"dictid":1'>商住两用</button>
+                        </li>
+                        
+                    </ul>
+                    <ul class="list-unstyled">
+                    	<li class="text-center clearlabel">
+                        	清空数据
+                        </li>
+                        <li>
+                        	<button type="button" class="btn btn-primary btn-block">确定</button>
+                        </li>
+                    </ul>
+            </div>
+            
+         </nav>
+         
+         <div  class="container" id="SerchList">   
+            <!--div class="row clearfix bd">
+            	<div class="col-xs-5">
+                	<img src="img/img2.png" class="img-responsive" />
+                </div>
+                <div class="col-xs-7 bdtext">
+        			<h4>天朗明居 高层厅出2房 视野开阔 南向带车位</h4>
+                    <h6>2室1厅/116m2/东南/富力天朗</h6>
+                    <p><span class="label label-default b1">满五年</span><span class="label label-default b2">近地铁</span><span class="label label-default b3">医院</span></p>
+                    <h6><b>245万</b> 28920元/平米</h6>
+                </div>
+            </div-->
+            
+        </div>
+        
+        <div class="container serch-page">
+            <div class="row clearfix text-center col-xs-6 col-xs-offset-3">
+                <p class="alert alert-info">加载更多<i class="fa  fa-plus"></i></p>
+            </div>
+        </div>
+        
+        <div class="container floor"></div>
+        
+        <div class="container bottombu navbar-fixed-bottom">
+        	<div class="row clearfix">
+            	<div class="col-xs-12">
+                	<i class="fa fa-sort-amount-asc"></i>排序
+                </div>
+            </div>
+        </div>
+        <div class="container navbar-fixed-bottom sort">
+        	<div class="row clearfix ">
+            <div class="col-xs-12">
+                <ul class="list-unstyled">
+                    <li onClick="changebottombox()">默认</li>
+                    <li onClick="searchob('')">最新发布</li>
+                    <li onClick="searchob('recomindex')">推荐房源</li>
+                    <li onClick="searchob('totalprice')">房屋总价</li>
+                    <li onClick="searchob('unitprice')">房屋单价</li>
+                    <li onClick="nowdesc(0)">价格由低到高</li>
+                    <li onClick="nowdesc(1)">价格由高到低</li>
+                </ul>
+
+            </div>
+            </div>
+        	
+        </div>
+    </body>
+</html>
+<script id="SCitem" type="text/template">
+	<div class="row clearfix bd" onclick="showAndroidToast('<%= oid %>',<%= ct %>)">
+		<div class="col-xs-5">
+			<img src="<%= iPath %>" class="img-responsive" />
+		</div>
+		<div class="col-xs-7 bdtext">
+			<h4><%= hname %></h4>
+			<h6><%= layoutName %>/<%= area %>/<%= orieName %>/<%= cname %></h6>
+			<p><%= hlabelNames %></p>
+			<h6><b><%= totalprice %></b><%= unitprice %></h6>
+		</div>
+	</div>
+</script>
+
+<script id="TJitem" type="text/template">
+	<div class="row clearfix tj">
+		<div class="col-xs-12">
+			<img src="<%= iPath %>" class="img-responsive" />
+		</div>
+		<div class="col-xs-12 text-right tjtipnum">
+			<span class="badge">+<%= icount %></span>
+		</div>
+		<div class="col-xs-12 tjtitle">
+			<div class="col-xs-12 tjtitletext">
+				<p><b><%= totalprice %></b> <%= unitprice %> <%= layoutName %>/<%= area %>/<%= orieName %></p>
+				<h6><%= hname %></h6>
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/javascript">
+$(document).ready(function () {
+	
+	$(".navmenu .col-xs-3 h4").click(function() {
+		barpagechange($(this));
+	});
+	$(".bottombu .col-xs-12").click(function() {
+		changebottombox();
+	});
+	$(".floor").click(function(){
+		$(this).fadeOut("fast");
+		navmenubase.css("color","#000000");
+		$("."+navmenubase.data('target')).css("display","none");
+		navmenubase = null;
+	});
+	//----
+	//datajsonStr ='{"seachstr":4}';
+	searchstr = getPageSS();
+	$("#searchkeystr").val(searchstr);
+	LoadSearchList();
+	LoadSearchCondition();
+	
+	
+	
+	//----
+	$("#serachbutton").click(function () {
+		searchstr = $("#searchkeystr").val();
+		LoadSearchList();
+	});
+	//----
+	$(".house button").click(function () {
+		//console.log(Gethouseselect());
+		floorOC(false)
+		navmenubase.css("color","#000000");
+		$(".house").css("display","none");
+		navmenubase = null;
+		datajsonStr = Gethouseselect();
+		LoadSearchList();
+		//Gethouseselect();
+	});
+	//----
+	$(".price a").click(function () {
+		console.log($(this).data('value'));
+		floorOC(false)
+		navmenubase.css("color","#000000");
+		$(".price").css("display","none");
+		navmenubase = null;
+		datajsonStr = $(this).data('value');
+		LoadSearchList();
+	});
+	
+	$(".price button").click(function () {
+		floorOC(false)
+		navmenubase.css("color","#000000");
+		$(".price").css("display","none");
+		navmenubase = null;
+		datajsonStr = '"endprice":"'+$(".maxprice").val()*1000000+'","startprice":"'+$(".minprice").val()*1000000+'"';
+		LoadSearchList();
+	});
+	//----
+	$(".alert-info").click (function () {
+		page++;
+		LoadSearchList(1);
+	});
+	//----
+	loadsel();
+    //----
+    $(".clearlabel").click (function () {
+        clearlabel();
+    })
+});
+//数据准备
+function sel(obj) {
+	$(".input-group-btn .btn").html($(obj).text() + '<span class="caret"></span>');
+	rentstr = $(obj).data("value");
+}
+function loadsel() {
+
+	if(getPageCT() == 0){
+		$(".input-group-btn .btn").html('买房<span class="caret"></span>');
+	}
+	if(getPageCT() == 1){
+		$(".input-group-btn .btn").html('租房<span class="caret"></span>');
+	}
+	
+}
+function searchob (str) {
+	orderbystr = str;
+	page = 1;
+	LoadSearchList();
+	changebottombox();
+}
+</script>

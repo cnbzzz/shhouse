@@ -1,0 +1,61 @@
+{
+  "button" : [
+    {
+      "name" : "我要看房",
+      "sub_button" : [
+        {
+          "name" : "二手房",
+          //          "key" : "ershoufang",
+          "type" : "view",
+          "url" : "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbc70eb1271771d9f&redirect_uri=http://www.darunjia.cn/wechatViewButtonHandler&response_type=code&scope=snsapi_base&state=ershoufang#wechat_redirect"
+        },
+        {
+          "name" : "租房",
+          //          "key" : "zufang",
+          "type" : "view",
+          "url" : "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbc70eb1271771d9f&redirect_uri=http://www.darunjia.cn/wechatViewButtonHandler&response_type=code&scope=snsapi_base&state=zufang#wechat_redirect"
+        }
+      ]
+    },
+    {
+      "name" : "我要委托",
+      "sub_button" : [
+        {
+          "name" : "我要出售",
+          //          "key" : "woyaochushou",
+          "type" : "view",
+          "url" : "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbc70eb1271771d9f&redirect_uri=http://www.darunjia.cn/wechatViewButtonHandler&response_type=code&scope=snsapi_base&state=woyaochushou#wechat_redirect"
+        },
+        {
+          "name" : "我要出租",
+          //          "key" : "woyaochuzu",
+          "type" : "view",
+          "url" : "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbc70eb1271771d9f&redirect_uri=http://www.darunjia.cn/wechatViewButtonHandler&response_type=code&scope=snsapi_base&state=woyaochuzu#wechat_redirect"
+        }
+      ]
+    },
+    {
+      "name" : "个人中心",
+      "sub_button" : [
+        {
+          "name" : "我的房源",
+          //          "key" : "wodefangyuan",
+          "type" : "view",
+          "url" : "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbc70eb1271771d9f&redirect_uri=http://www.darunjia.cn/wechatViewButtonHandler&response_type=code&scope=snsapi_base&state=wodefangyuan#wechat_redirect"
+
+        },
+        {
+          "name" : "联系我们",
+          //          "key" : "lianxijingjiren",
+          "type" : "view",
+          "url" : "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbc70eb1271771d9f&redirect_uri=http://www.darunjia.cn/wechatViewButtonHandler&response_type=code&scope=snsapi_base&state=lianxijingjiren#wechat_redirect"
+        },
+        {
+          "name" : "登录注册",
+          "type" : "view",
+          "url" : "https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxbc70eb1271771d9f&redirect_uri=http://www.darunjia.cn/wechatViewButtonHandler&response_type=code&scope=snsapi_base&state=dengluzhuce#wechat_redirect"
+        }
+      ]
+    }
+  ]
+}

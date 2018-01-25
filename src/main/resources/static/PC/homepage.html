@@ -1,0 +1,292 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, 
+                                     initial-scale=1.0, 
+                                     maximum-scale=1.0, 
+                                     user-scalable=no">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/init.css" rel="stylesheet">
+        
+
+ 
+        <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+        <script src="js/jquery.min.js" charset="utf-8"></script>
+         
+        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+        <script src="js/bootstrap.min.js" charset="utf-8"></script>
+        <script src="js/underscore.js" charset="utf-8"></script>
+        <script src="js/jquery.o.js" charset="utf-8"></script>
+        <script src="js/assist.js" charset="utf-8"></script>
+        <script src="js/base.js" charset="utf-8"></script>
+        <title>首页</title>
+    </head>
+    <body class="body">
+    	
+        <nav class="navbar navbar-default" role="navigation">
+            <div class="container">
+            <div class="row clearfix">
+            
+                <div class="col-md-2 col-xs-4">
+                    <a class="navbar-brand" href="#"><img src="img/logo-white.png" class="img-responsive" ></a>
+                </div>
+                <div class="col-md-10 col-xs-8">
+                	<div class="dropdown col-md-2 col-xs-4">
+                        <span class="badge dropdown-toggle" id="dropdownMenu1" data-toggle="dropdown">重庆
+                            <span class="caret"></span>
+                        </span >
+                        <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                            <li>
+                                <a href="#">重庆</a>
+                            </li>
+                            <li>
+                                <a href="#">开拓中</a>
+                            </li>
+                            <!--li>
+                                <a href="#">广州</a>
+                            </li>
+                            <li>
+                                <a href="#">重庆</a>
+                            </li>
+                            <li>
+                                <a href="#">深圳</a>
+                            </li-->
+                        </ul>
+                    </div>
+                    <ul class="col-md-4 list-inline menu hidden-xs hidden-sm">
+                    	
+                        <li><a href="search.html?ct=0">买房</a></li>
+                        <li><a href="search.html?ct=1">租房</a></li>
+                        <li><a href="submitsalehouse.html">卖房</a></li>
+                        
+                    </ul>
+                    <div class="col-md-4 text-right checkin col-xs-8">
+                    	<i class="fa fa-phone"></i>400-888-8888
+                    </div>
+                    <div class="col-md-2 checkin hidden-xs hidden-sm">
+                    	<i class="fa fa-user"></i><a class="ha" href="login.html">登录</a><a href="login-check.html">注册</a>
+                    </div>
+                    
+                </div>
+                
+            </div>
+            </div> 
+        </nav>
+        
+        <div class="container search">
+        	<div class="row clearfix">
+            	<div class="col-xs-12 text-center">
+                	<h1>VR· AR· 360<sup>°</sup> 全景· 互动直播</h1>
+                    <h2>开启看房的革命时代</h2>
+                </div>
+                <div class="col-sm-8 col-sm-offset-2  col-xs-10 col-xs-offset-1">
+					<ul id="myTab" class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#sale" data-toggle="tab" data-rent="0">
+                                 买房
+                            </a>
+                        </li>
+                        <li>
+                        	<a href="#rent" data-toggle="tab" data-rent="1">
+                            	租房
+                            </a>
+                        </li>
+                    </ul>
+                    <div id="myTabContent" class="tab-content">
+                        <div class="tab-pane in active" id="sale">
+                            <i class="fa fa-sort-up"></i>
+                        </div>
+                        <div class="tab-pane" id="rent">
+                            <i class="fa fa-sort-up"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xs-12">
+                	<div class="input-group col-sm-8 col-sm-offset-2  col-xs-10 col-xs-offset-1">
+                        <input type="text" class="form-control input-lg" placeholder="请输入区域、小区名称开始查找">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default btn-lg" type="button">开始找房</button>
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <video src="http://shhouse.oss-cn-shanghai.aliyuncs.com/system/bg.mp4" autoplay muted loop class="hvideo hidden-md hidden-sm hidden-xs"></video>
+        
+        <div class="app">
+        	<div class="container">
+            	<div class="row clearfix">
+                    <div class="col-md-9 col-xs-12">
+                        <h1>随时VR看房</h1>
+                        <h6>
+                            扫一扫关注微信公众号<br />
+                            下载最新版本的APP（for Android）<br />
+                            Iphone版本敬请关注<br />
+                        </h6>
+                        
+                    </div>
+                    <div class="col-md-3 col-xs-12">
+                        <button type="button"><i class="fa  fa-weixin"></i><b>公众号</b></button>
+                        <button type="button" style="background:#f0f0f0;"><i class="fa  fa-android" style="color:#888888;"></i><b style="color:#888888;">Android</b></button>
+                        <button type="button" style="background:#f0f0f0;"><i class="fa fa-apple" style="color:#888888;"></i><b style="color:#888888;">Iphone</b></button>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+        
+        <div class="test">
+        	<div class="container">
+            	<div class="row clearfix">
+                    <div class="col-md-6 col-xs-12">
+                        <h1>84项评测系统</h1>
+                        <h5>看得见的，看不见的，我们都为您呈现</h5>
+                        <ul class="list-unstyled">
+                            <li>19 项水电质检评测</li>
+                            <li>31 项室内情况评测</li>
+                            <li>34 项公共外部情况评测</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 col-xs-12">
+                        <h1>16项全程保障</h1>
+                        <h5>想得到的，想不到的，我们都为你想到</h5>
+                        <ul class="list-unstyled">
+                            <li>6 项交易保障</li>
+                            <li>6 项交房保障</li>
+                            <li>4 项售后保障</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="video">
+        	<div class="container">
+                <div class="row clearfix">
+                    <div class="col-md-12 text-center">
+                        <ul class="list-inline">
+                            <li>360<sup>。</sup> / VR / AR / 直播</li>
+                            <li><img src="img/video.png" class="img-responsive" ></li>
+                            <li>革命，不是一个词 而是一次点击</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="work">
+        	<div class="container">
+                <div class="row clearfix">
+                    <div class="col-md-12 text-center">
+                        <h1>开放平台模式</h1>
+                        <h3>开放平台模式 打破传统瓶颈 1000+人共同卖一套房 我们的创新只为给你更好的体验</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="housebox">
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-md-12 title">
+                        <h2><b>二手好房</b> 为你而选</h2>
+                        
+                    </div>
+                    
+                    <div class="col-md-12 content" id="TJList">
+                        <!--div class="col-md-3 col-xs-6">
+                            <img src="img/img2.png" class="img-responsive">
+                            <h4>金沙港湾 2室2厅 95.29m<sup>2</sup></h4>
+                            <h5><b>210万</b> 15201元/平米</h5>
+                        </div-->
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="foot hidden-sm hidden-xs">
+        	<div class="container">
+                <div class="row clearfix">
+                    <div class="col-md-8 col-md-offset-3">
+                        <h5>
+                            <a href="#">关于我们</a>
+                           <a href="#"> 联系我们</a>
+                            <a href="#">加入我们</a>
+                            <a href="#">经纪人</a>
+                            <a href="#">隐私声明</a>
+                           <a href="#"> 友情链接</a>
+                            <a href="#">网站地图</a>
+                        </h5>
+                        <div class="line"></div>
+                        <h6>
+                            重庆聚泛网络科技有限责任公司 <b><i class="fa  fa-copyright"></i>copy2010-2017</b><br>
+                            网络经营许可证号 123456<b>|</b>备案登记号 粤ICP备01234656-12 <b>|</b> 客服电话 400-123-8888
+                        </h6>
+                        <p>
+                        	<i class="fa  fa-weixin"></i>
+                            <i class="fa  fa-android"></i>
+                            <i class="fa  fa-apple"></i>
+                        </p>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="container navbar-fixed-bottom phonebottommenu hidden-md hidden-lg">
+        	<div class="row clearfix">
+            	<div class="col-xs-2 text-center ac"><a href="homepage.html">首页</a></div>
+                <div class="col-xs-3 text-center"><a href="search.html?ct=0">买房</a></div>
+                <div class="col-xs-2 text-center"><a href="submitsalehouse.html">卖房</a></div>
+                <div class="col-xs-3 text-center"><a href="message_list.html">消息</a></div>
+                <div class="col-xs-2 text-center"><a href="mine-follow-house.html">我</a></div>
+            </div>
+        </div>
+        
+        
+    </body>
+</html>
+
+
+<script id="TJitem" type="text/template">
+	<div class="col-md-3 col-xs-6 TJbox">
+		<a href="details.html?oid=<%= oid %>">
+        <img src="<%= iPath %>" class="img-responsive">
+		<h4><%= cname %> <%= layoutName %> <%= area %></h4>
+		<h5><b><%= totalprice %></b> <%= unitprice %></h5>
+		</a>
+	</div>
+</script>
+<script type="text/javascript">
+$(document).ready(function () {
+
+	LoadTJcontent();
+	
+	$(".search .btn").click(function () {
+		if(getPagecoid() == ""){
+			location.href="search.html?ct="+pagerent+"&ss="+ escape($(".search .form-control").val());
+		}else{
+			location.href="search.html?ct="+pagerent+"&token="+getPagecoid()+"&ss="+ escape($(".search .form-control").val());
+		}
+		
+	}); 
+	//--
+	var pagerent="0";
+	$(".search a").click(function () {
+		pagerent = $(this).data("rent");
+	});
+	
+	//--
+	$(".app button").eq(0).click(function () {
+		openr2();
+	});
+	
+});
+//数据准备
+</script>

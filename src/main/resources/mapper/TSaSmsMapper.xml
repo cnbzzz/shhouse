@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jufangbao.house.shhouse.mapper.TSaSmsMapper">
+  <resultMap id="BaseResultMap" type="cn.jufangbao.house.shhouse.model.TSaSms">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="oid" jdbcType="VARCHAR" property="oid" />
+    <result column="sendplatform" jdbcType="VARCHAR" property="sendplatform" />
+    <result column="recnum" jdbcType="VARCHAR" property="recnum" />
+    <result column="content" jdbcType="VARCHAR" property="content" />
+    <result column="authcode" jdbcType="VARCHAR" property="authcode" />
+    <result column="sendcount" jdbcType="INTEGER" property="sendcount" />
+    <result column="sendtime" jdbcType="TIMESTAMP" property="sendtime" />
+    <result column="invalidtime" jdbcType="TIMESTAMP" property="invalidtime" />
+    <result column="chktime" jdbcType="TIMESTAMP" property="chktime" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+
+  <select id="querySmsWithin1minByRecNum" parameterType="String" resultType="cn.jufangbao.house.shhouse.model.TSaSms">
+  SELECT
+      *
+  FROM
+      t_sa_sms t1
+  WHERE
+      t1.sendtime &gt; date_sub(now(), INTERVAL 1 MINUTE)
+  AND t1.`status` = 1
+  AND t1.recnum = #{recnum}
+  ORDER BY
+      t1.sendtime DESC
+  LIMIT 1
+  </select>
+
+  <select id="queryAllowSmsByRecNumAndRandomCode" resultType="cn.jufangbao.house.shhouse.model.TSaSms">
+  SELECT
+      *
+  FROM
+      t_sa_sms t1
+  WHERE
+      t1.invalidtime &gt; now()
+  AND t1.recnum = #{recnum}
+	AND t1.authcode = #{randomcode}
+  ORDER BY
+      t1.invalidtime DESC
+  LIMIT 1
+  </select>
+</mapper>

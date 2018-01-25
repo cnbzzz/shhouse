@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jufangbao.house.shhouse.mapper.TCmAgentBankcardMapper">
+  <resultMap id="BaseResultMap" type="cn.jufangbao.house.shhouse.model.TCmAgentBankcard">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="oid" jdbcType="VARCHAR" property="oid" />
+    <result column="aoid" jdbcType="VARCHAR" property="aoid" />
+    <result column="bankid" jdbcType="VARCHAR" property="bankid" />
+    <result column="bankcardnum" jdbcType="VARCHAR" property="bankcardnum" />
+    <result column="accountperson" jdbcType="VARCHAR" property="accountperson" />
+    <result column="createdate" jdbcType="TIMESTAMP" property="createdate" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+
+  <select id="queryAgentBankcard" parameterType="cn.jufangbao.house.shhouse.model.TCmAgentBankcard" resultType="cn.jufangbao.house.shhouse.dto.AgentBankcardDetailDto">
+  SELECT
+      t1.*, t2.dictname AS bankname
+  FROM
+      t_cm_agent_bankcard t1,
+      t_sa_dict_item t2
+  WHERE
+      t1.bankid = t2.dictid
+  AND t2.groupid = 'BANK'
+  AND t1. STATUS = 1
+  AND t2. STATUS = 1
+  <if test="@org.apache.commons.lang3.StringUtils@isNotBlank(aoid)">
+    AND t1.aoid = #{aoid}
+  </if>
+  <if test="@org.apache.commons.lang3.StringUtils@isNotBlank(bankcardnum)">
+    AND t1.bankcardnum = #{bankcardnum}
+  </if>
+  <if test="@org.apache.commons.lang3.StringUtils@isNotBlank(bankid)">
+    AND t1.bankid = #{bankid}
+  </if>
+  </select>
+</mapper>

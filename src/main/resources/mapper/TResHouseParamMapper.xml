@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jufangbao.house.shhouse.mapper.TResHouseParamMapper">
+  <resultMap id="BaseResultMap" type="cn.jufangbao.house.shhouse.model.TResHouseParam">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="oid" jdbcType="VARCHAR" property="oid" />
+    <result column="hoid" jdbcType="VARCHAR" property="hoid" />
+    <result column="paramname" jdbcType="VARCHAR" property="paramname" />
+    <result column="paramval" jdbcType="VARCHAR" property="paramval" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="cuoid" jdbcType="VARCHAR" property="cuoid" />
+    <result column="cdate" jdbcType="TIMESTAMP" property="cdate" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+
+  <select id="listByHoid" parameterType="String" resultType="cn.jufangbao.house.shhouse.model.TResHouseParam">
+    SELECT
+    t1.oid,
+    t1.hoid,
+    t1.paramval,
+    t1.sort,
+    t1.cuoid,
+    t1.cdate,
+    t1.`status`,
+    t2.dictname AS paramname
+    FROM
+    t_res_house_param t1,
+    t_sa_dict_item t2
+    WHERE
+    t1.paramname = t2.dictid
+    AND t1.`status` = 1
+    AND t2.`status` = 1
+    AND t1.hoid = #{hoid}
+    AND t2.groupid = 'HOUSE_PARAMNAME'
+    ORDER BY
+    sort
+  </select>
+</mapper>

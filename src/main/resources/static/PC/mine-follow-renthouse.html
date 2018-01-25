@@ -1,0 +1,251 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, 
+                                     initial-scale=1.0, 
+                                     maximum-scale=1.0, 
+                                     user-scalable=no">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/init.css" rel="stylesheet">
+        
+
+ 
+        <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+        <script src="js/jquery.min.js" charset="utf-8"></script>
+         
+        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+        <script src="js/bootstrap.min.js" charset="utf-8"></script>
+        <script src="js/underscore.js" charset="utf-8"></script>
+        <script src="js/jquery.o.js" charset="utf-8"></script>
+        <script src="js/assist.js" charset="utf-8"></script>
+        <script src="js/base.js" charset="utf-8"></script>
+        <title>我的关注房源</title>
+    </head>
+    <body class="mine-body">
+    	
+        <nav class="mine-navbar">
+            <div class="container">
+            <div class="row clearfix">
+            
+                <div class="col-md-2 col-xs-4 mpclear">
+                    <a class="navbar-brand" href="#"><img src="img/logo-white.png" class="img-responsive" ></a>                
+                </div>
+                <div class="col-md-10 col-xs-8">
+                <div class="row clearfix">
+                    <ul class="col-md-6 list-inline menu hidden-xs hidden-sm">
+                        <li><a href="homepage.html">首页</a></li>
+                        <li><a href="search.html?ct=0">买房</a></li>
+                        <li><a href="search.html?ct=1">租房</a></li>
+                        <li><a href="submitsalehouse.html">卖房</a></li>
+                        
+                    </ul>
+                    <div class="col-md-4 text-right checkin col-xs-10">
+                        <i class="fa fa-phone"></i>400-888-8888 
+                    </div>
+                    <div class="col-xs-2 morebtn hidden-md hidden-lg mpclear">
+                        <i class="fa fa-bars hidden-md hidden-lg" style="font-size:20px;"></i>
+                    </div>
+                    <div class="col-md-2 checkin hidden-xs hidden-sm">
+                        <i class="fa fa-user"></i><a class="ha" href="login.html">登录</a><a href="login-check.html">注册</a>                    
+                    </div>
+                </div> 
+                </div>
+                
+            </div>
+            </div> 
+        </nav>
+        
+       	<div class=" mine-title">
+        <div class="container">
+            <div class="row clearfix">
+                <div class="col-md-2 col-xs-6 col-sm-6 hidden-sm mine-box">
+                	<div class="col-xs-12">
+                    	<img src="" class="img-responsive userhead">
+                    </div>
+                    <div class="col-xs-12">
+                    	<ul class="list-unstyled">
+                            <li class="action"><a href="mine-follow-house.html">我的关注</a></li>
+                            <li><a href="mine-plan-visit.html">看房日程</a></li>
+                            <!--li>经纪人</li-->
+                            <li><a href="mine-depute-sale.html">我的委托</a></li>
+                            <li><a href="mine-center-image.html">编辑资料</a></li>
+                            <li class="hidden-lg hidden-md userloginbox"></li>
+                            <!--li class="text-center">
+                                <h2><b>5</b></h2>
+                                <h5>成交（套）</h5>
+                                <h2><b>13</b></h2>
+                                <h5>带看（次）</h5>
+                            </li-->
+                        </ul>
+                    </div>
+                    
+                    
+                    
+                    
+                </div>
+                <div class="col-md-10 col-xs-12 col-sm-12">
+                    <div class="row clearfix">
+                        <div class="col-md-4">
+                            <h1 class="mpclear col-md-12 col-sm-6 col-xs-6">&nbsp;</h1>
+                            <h5 class="col-md-12 col-sm-6 col-xs-6">&nbsp;</h5>
+                        </div>
+                        <div class="col-md-8">
+                            <div class="input-group">
+                                <input type="text" class="form-control input-lg" placeholder="请输入区域，小区名称开始找房">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-default mine-search-btn" type="button"><i class="fa fa-search"></i></button>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row clearfix">
+                        <div class="col-md-12">
+                        	<br>
+                            我的关注
+                        </div>
+                        <div class="col-md-12">
+                        
+                            <ul id="myTab" class="nav nav-tabs col-xs-12">
+                                <li class="col-xs-4 col-md-2 mpclear">
+                                    <a href="mine-follow-house.html">售房源</a>
+                                </li>
+                                <li class="active col-xs-4 col-md-2 mpclear">
+                                    <a href="mine-follow-renthouse.html">租房源</a>
+                                </li>
+                                <li class="col-xs-4 col-md-2 mpclear">
+                                    <a href="mine-follow-com.html">小区</a>
+                                </li>
+                                
+                            </ul>
+                            <div id="myTabContent" class="datalist col-xs-12">
+                            <!---->
+                               
+                                
+                            <!---->    
+                            </div>
+                            
+                        </div>
+                    </div>
+                        
+                    <!--content-->
+                </div>
+            </div>
+        </div>
+        </div>
+        
+        
+        
+        
+        <div class="foot hidden-sm hidden-xs">
+        	<div class="container">
+                <div class="row clearfix">
+                    <div class="col-md-8 col-md-offset-3">
+                        <h5>
+                            <a href="#">关于我们</a>
+                           <a href="#"> 联系我们</a>
+                            <a href="#">加入我们</a>
+                            <a href="#">经纪人</a>
+                            <a href="#">隐私声明</a>
+                           <a href="#"> 友情链接</a>
+                            <a href="#">网站地图</a>
+                        </h5>
+                        <div class="line"></div>
+                        <h6>
+                            重庆聚泛网络科技有限责任公司 <b><i class="fa  fa-copyright"></i>copy2010-2017</b><br>
+                            网络经营许可证号 123456<b>|</b>备案登记号 粤ICP备01234656-12 <b>|</b> 客服电话 400-123-8888
+                        </h6>
+                        <p>
+                        	<i class="fa  fa-weixin"></i>
+                            <i class="fa  fa-android"></i>
+                            <i class="fa  fa-apple"></i>
+                        </p>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="container navbar-fixed-bottom phonebottommenu hidden-md hidden-lg">
+        	<div class="row clearfix">
+            	<div class="col-xs-2 text-center"><a href="homepage.html">首页</a></div>
+                <div class="col-xs-3 text-center"><a href="search.html?ct=0">买房</a></div>
+                <div class="col-xs-2 text-center"><a href="submitsalehouse.html">卖房</a></div>
+                <div class="col-xs-3 text-center"><a href="message_list.html">消息</a></div>
+                <div class="col-xs-2 text-center ac"><a href="mine-follow-house.html">我</a></div>
+            </div>
+        </div>
+        
+        
+    </body>
+</html>
+<script id="BDitem" type="text/template">
+	<div class="row clearfix bd">
+                                
+		<div class="col-md-3 col-sm-4 col-xs-4">
+			<a href="details.html?oid=<%= oid %>"><img src="<%= iPath %>" class="img-responsive" /></a>
+		</div>
+		<div class="col-md-6 col-sm-8 col-xs-8 bdtext">
+			<h2><a href="details.html?oid=<%= oid %>"><%= hname %>（<%= statName %>）</a></h2>
+			<h6><i class="fa fa-home"></i><span class="hidden-sm hidden-xs"><%= cname %><b>|</b><%= lutypename %><b>|</b></span><%= layoutName %><b>|</b><%= area %><b>|</b><%= orieName %><b>|</b><%= decoName %></h6>
+			<h6><i class="fa  fa-map-marker"></i><%= floor %>层<b>|</b><%= year %>年建<b>|</b><%= anames %></h6>
+			<h6><i class="fa fa-star-o"></i><%= housefollow %>人关注<b>|</b>共<%= houseseen %>次带看<b>|</b><%= cdate %>发布</h6>
+			<p><%= hlabelNames %></p>
+		</div>
+		<div class="col-md-3 col-sm-12 col-xs-12 bdprice">
+			<div class="col-sm-4 col-xs-4 hidden-md hidden-lg"></div>
+			<h6 class="col-md-12 col-sm-3 col-xs-3">500万<i class="fa  fa-level-down ft4"></i></h6>
+			<h1 class="col-md-12 col-sm-2 col-xs-2"><%= totalprice %></h1>
+			<h5 class="col-md-12 col-sm-3 col-xs-3">单价<%= unitprice %></h5>
+			<h4 class="col-md-12 col-sm-12 col-xs-12 text-right" onclick="delfollow('<%= oid %>',2)"><a href="#" title="取消关注"><i class="fa  fa-trash-o ft3"></i></a></h4>
+		</div>
+		
+		
+	</div>
+	
+</script>
+<script id="nodataitem" type="text/template">
+	<div class="datalist col-xs-12 text-center"><br>
+		<h1><b>还没有关注中的房源</b></h1><br>
+		<h5>搜索房源可以获得更多本地房源信息</h5>
+	
+	</div>
+</script>
+<script type="text/javascript">
+$(document).ready(function () {
+
+	//LoadTJcontent();
+	//LoadBDcontent();
+	
+	$(".fa-bars").click(function(){
+		if($(".mine-box").css("left") == "-200px"){
+			$(".mine-box").animate({left:'0px'},'fast');
+		}else{
+			$(".mine-box").animate({left:'-200px'},'fast');
+		}
+	  
+	});
+	$(".mine-body").click(function () {
+		if($(".mine-box").css("left") == "0px"){
+			$(".mine-box").animate({left:'-200px'},'fast');
+		}
+	});
+	//--
+	$(".mine-search-btn").click(function () {
+		if(getPagecoid() == ""){
+			location.href="search.html?ct="+getPageCT()+"&ss="+ escape($(".mine-title .form-control").val());
+		}else{
+			location.href="search.html?ct="+getPageCT()+"&token="+getPagecoid()+"&ss="+ escape($(".mine-title .form-control").val());
+		}
+	}); 
+	//--
+	Loadcustfollow(2);
+
+});
+mine = true;
+//数据准备
+</script>

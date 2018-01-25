@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jufangbao.house.shhouse.mapper.TCmCustomerMapper">
+  <resultMap id="BaseResultMap" type="cn.jufangbao.house.shhouse.model.TCmCustomer">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="oid" jdbcType="VARCHAR" property="oid" />
+    <result column="phonenum" jdbcType="BIGINT" property="phonenum" />
+    <result column="passwd" jdbcType="VARCHAR" property="passwd" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="sex" jdbcType="VARCHAR" property="sex" />
+    <result column="custclazz" jdbcType="VARCHAR" property="custclazz" />
+    <result column="lastlogindate" jdbcType="TIMESTAMP" property="lastlogindate" />
+    <result column="followdate" jdbcType="TIMESTAMP" property="followdate" />
+    <result column="ipath" jdbcType="VARCHAR" property="ipath" />
+    <result column="wechatid" jdbcType="VARCHAR" property="wechatid" />
+    <result column="founder" jdbcType="BIGINT" property="founder" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+
+  <select id="countSeller" resultType="cn.jufangbao.house.shhouse.dto.CustSellerCountDto">
+  SELECT
+      IFNULL(count(1), 0) AS total,
+      IFNULL(
+          CASE
+          WHEN t1.transtype = 1 THEN
+              count(*)
+          END,
+          0
+      ) AS salecount,
+      IFNULL(
+          CASE
+          WHEN t1.transtype = 2 THEN
+              count(*)
+          END,
+          0
+      ) AS rentcount,
+      IFNULL(
+          CASE
+          WHEN t1.transtype = 3 THEN
+              count(*)
+          END,
+          0
+      ) AS sellcount,
+      IFNULL(
+          CASE
+          WHEN t1.transtype = 4 THEN
+              count(*)
+          END,
+          0
+      ) AS rentedcount
+  FROM
+      t_cm_cust_house t1
+  WHERE
+      t1.seller = #{seller}
+  AND t1.`status` = 1
+  </select>
+
+  <select id="countCustFollow" resultType="cn.jufangbao.house.shhouse.dto.CustFollowCountDto" parameterType="String">
+  SELECT
+      count(IF(t1.followtype = 1, 1, NULL)) AS salecount,
+      count(IF(t1.followtype = 2, 1, NULL)) AS rentcount,
+      count(IF(t1.followtype = 3, 1, NULL)) AS commcount,
+      IFNULL(count(*), 0) AS totalcount
+  FROM
+      t_cm_cust_follow t1
+  WHERE
+      t1.coid = #{coid}
+  AND t1.`status` = 1
+  </select>
+
+  <select id="countCustBrowse" resultType="Long" parameterType="String">
+    SELECT
+    IFNULL(count(1), 0) AS total
+    FROM
+    t_cm_agent_browse t1
+    WHERE
+    t1.coid = #{coid}
+    AND t1.`status` = 1
+  </select>
+
+  <select id="selectByPhoneNumAndPasswd" parameterType="cn.jufangbao.house.shhouse.model.TCmCustomer" resultType="cn.jufangbao.house.shhouse.model.TCmCustomer">
+    select *
+    from t_cm_customer
+    where phonenum = #{phonenum,jdbcType=BIGINT} and passwd = #{passwd,jdbcType=VARCHAR}
+  </select>
+
+  <select id="listSellerHouse" resultType="cn.jufangbao.house.shhouse.dto.CustSellerDto">
+    <include refid="houseQueryColumn" />
+    ,t19.oid AS custid,
+    t19. NAME AS custname,
+    t19.phonenum AS phonenum,
+    t20.dictname AS transtypename
+    <include refid="select" />
+    INNER JOIN t_cm_cust_house t18 ON t1.oid = t18.hoid
+    AND t18.`status` = 1
+    LEFT JOIN t_cm_customer t19 ON t18.seller = t19.oid
+    LEFT JOIN t_sa_dict_item t20 ON t18.transtype = t20.dictid
+    AND t20.groupid = 'TRANS_TYPE'
+    WHERE
+    1 = 1
+    AND t18.seller = #{seller}
+    <if test="@org.apache.commons.lang3.StringUtils@isNotEmpty(transtype)">
+      AND t18.transtype = #{transtype}
+    </if>
+    GROUP BY
+    t18.oid
+  </select>
+
+  <select id="listCustFollowHouse" resultType="cn.jufangbao.house.shhouse.dto.CustFollowHouseDto">
+    <include refid="houseQueryColumn" />
+    ,t19.oid AS custid,
+    t19. NAME AS custname,
+    t19.phonenum AS phonenum,
+    t18.createdate as followdate
+    <include refid="select" />
+    INNER JOIN t_cm_cust_follow t18
+    <if test="@org.apache.commons.lang3.StringUtils@equals(followtype, '1'.toString())">
+      ON t1.oid = t18.follow AND t18.followtype = '1' AND t1.rent = '0'
+    </if>
+    <if test="@org.apache.commons.lang3.StringUtils@equals(followtype, '2'.toString())">
+      ON t1.oid = t18.follow AND t18.followtype = '2' AND t1.rent = '1'
+    </if>
+    AND t18.`status` = 1
+    LEFT JOIN t_cm_customer t19 ON t18.coid = t19.oid
+    WHERE
+    1 = 1
+    AND t18.coid = #{coid}
+    GROUP BY
+    t18.oid
+  </select>
+
+  <select id="listCustFollowComm" resultType="cn.jufangbao.house.shhouse.dto.CustFollowCommDto">
+    SELECT
+        t13.*, GROUP_CONCAT(
+            DISTINCT t112.dictname
+            ORDER BY
+                t112.sort
+        ) AS clabels,
+        t19.oid AS custid,
+        t19. NAME AS custname,
+        t19.phonenum AS phonenum,
+        t22.createdate AS followdate,
+        IFNULL(t20.salecount, 0) AS salecount,
+        IFNULL(t20.rentcount, 0) AS rentcount,
+        IFNULL(t20.saledcount, 0) AS saledcount,
+        IFNULL(t20.rentedcount, 0) AS rentedcount,
+        GROUP_CONCAT(DISTINCT t21.hlayout) AS hlayouts,
+        IFNULL(COUNT(DISTINCT t22.oid), 0) AS commfollowcount,
+        GROUP_CONCAT(DISTINCT t24.dictname) AS buildingtypes
+    FROM
+        t_res_comm t13
+    LEFT JOIN t_res_comm_label t111 ON t13.oid = t111.coid
+    AND t111.`status` = 1
+    LEFT JOIN t_sa_dict_item t112 ON t111.clabel = t112.dictid
+    AND t112.groupid = 'COMM_LABEL'
+    AND t112.`status` = 1
+    LEFT JOIN t_cm_cust_follow t22 ON t13.oid = t22.follow
+    AND t22.followtype = '3'
+    AND t22.`status` = 1
+    LEFT JOIN t_cm_customer t19 ON t22.coid = t19.oid
+    LEFT JOIN t_res_comm_sale t20 ON t13.oid = t20.oid
+    AND t20.`status` = 1
+    LEFT JOIN t_res_hlayout t21 ON t13.oid = t21.coid
+    AND t21.`status` = 1
+    LEFT JOIN t_res_building t23 ON t13.oid = t23.coid
+    LEFT JOIN t_sa_dict_item t24 ON t23.btype = t24.dictid
+    AND t24.groupid = 'BUILDING_TYPE'
+    WHERE
+        1 = 1
+  AND t22.coid = #{coid}
+  GROUP BY
+      t22.oid
+  </select>
+
+  <select id="listCustAgent" resultType="cn.jufangbao.house.shhouse.dto.CustAgentDto">
+  SELECT
+      t3.*, t2.createdate as scandate
+  FROM
+      t_cm_customer t1,
+      t_cm_agent_cust t2,
+      t_cm_agent t3
+  WHERE
+      t1.oid = t2.coid
+  AND t2.aoid = t3.oid
+  AND t2.`status` = 1
+  AND t1.oid = #{coid}
+  GROUP BY
+      t3.oid
+  </select>
+
+  <select id="listCustBooking" resultType="cn.jufangbao.house.shhouse.dto.CustBookingDto">
+    <include refid="houseQueryColumn" /> , t19.oid AS custid, t19.name AS custname, t19.phonenum AS phonenum, t18.bookingtime
+    <include refid="select" />
+    INNER JOIN t_cm_agent_booking t18 ON t1.oid = t18.hoid
+    AND t18.`status` = 1
+    LEFT JOIN t_cm_customer t19 ON t18.coid = t19.oid
+    WHERE
+    1 = 1
+    AND t18.coid = #{coid}
+    <if test="rent != null">
+    AND t18.rent = #{rent}
+    </if>
+    GROUP BY
+    t18.oid
+  </select>
+
+  <select id="listBuyerDeal" resultType="cn.jufangbao.house.shhouse.dto.HouseDto">
+    <include refid="houseQueryColumn" />
+    <include refid="select" />
+    INNER JOIN t_cm_agent_deal t18 ON t1.oid = t18.hoid
+    AND t18.`status` = 1
+    WHERE
+    1 = 1
+    AND t18.boid = #{boid}
+    <if test="rent != null">
+      AND t18.rent = #{rent}
+    </if>
+    GROUP BY
+    t18.oid
+  </select>
+
+  <select id="listSellerDeal" resultType="cn.jufangbao.house.shhouse.dto.HouseDto">
+    <include refid="houseQueryColumn" />
+    <include refid="select" />
+    INNER JOIN t_cm_agent_deal t18 ON t1.oid = t18.hoid
+    AND t18.`status` = 1
+    WHERE
+    1 = 1
+    AND t18.soid = #{soid}
+    <if test="rent != null">
+      AND t18.rent = #{rent}
+    </if>
+    GROUP BY
+    t18.oid
+  </select>
+
+  <select id="listCustSeenHouse" resultType="cn.jufangbao.house.shhouse.dto.CustSeenDto">
+    <include refid="houseQueryColumn" />
+    ,t19.oid AS custid,
+    t19. NAME AS custname,
+    t19.phonenum AS phonenum,
+    t18.browsetime
+    <include refid="select" />
+    INNER JOIN t_cm_agent_browse t18 ON t1.oid = t18.hoid
+    AND t18.`status` = 1
+    LEFT JOIN t_cm_customer t19 ON t18.coid = t19.oid
+    WHERE
+    1 = 1
+    AND t18.coid = #{coid}
+    GROUP BY
+    t18.oid
+  </select>
+
+    <sql id="houseQueryColumn">
+        SELECT
+        t1.*, t2.dictname AS deconame,
+        t3.dictname AS oriename,
+        t4.dictname AS statname,
+        t6.dictname AS layoutname,
+        GROUP_CONCAT(
+        DISTINCT t12.dictname
+        ORDER BY
+        t12.dictname
+        ) AS hlabelnames,
+        t13.cname,
+        t13.ipath AS cipath,
+        t15.dictname AS btypename,
+        t17.dictname AS lutypename,
+        GROUP_CONCAT(
+        DISTINCT t8.aname
+        ORDER BY
+        t8.aname
+        ) AS anames,
+        t14.floor as totalfloor
+        , GROUP_CONCAT(
+        DISTINCT t112.dictname
+        ORDER BY
+        t112.sort
+        ) AS clabels,
+        IFNULL(t113.browse, 0) AS housebrowse,
+        IFNULL(t113.follow,0) AS housefollow,
+        IFNULL(t113.seen, 0) AS houseseen
+    </sql>
+
+    <sql id="select">
+        FROM
+        t_res_house t1
+        LEFT JOIN t_sa_dict_item t2 ON t1.decoration = t2.dictid
+        AND t2.`status` = 1
+        AND t2.groupid = 'HOUSE_DECORATION'
+        LEFT JOIN t_sa_dict_item t3 ON t1.orientation = t3.dictid
+        AND t3.`status` = 1
+        AND t3.groupid = 'HOUSE_ORIENTATION'
+        LEFT JOIN t_sa_dict_item t4 ON t1.`status` = t4.dictid
+        AND t4.groupid = 'HOUSE_SALE_STATUS'
+        LEFT JOIN t_sa_dict_item t6 ON t1.hlayout = t6.dictid
+        AND t6.`status` = 1
+        AND t6.groupid = 'HOUSE_LAYOUT'
+        LEFT JOIN t_res_comm_area t7 ON t1.coid = t7.coid
+        AND t7.`status` = 1
+        LEFT JOIN t_sa_area t8 ON t7.aoid = t8.oid
+        AND t8.`status` = 1
+        LEFT JOIN t_res_comm_metro t9 ON t1.coid = t9.coid
+        AND t9.`status` = 1
+        LEFT JOIN t_sa_metro t10 ON t9.moid = t10.oid
+        AND t10.`status` = 1
+        LEFT JOIN t_res_house_label t11 ON t1.oid = t11.hoid
+        AND t11.`status` = 1
+        LEFT JOIN t_sa_dict_item t12 ON t11.hlabel = t12.dictid
+        AND t12.`status` = 1
+        AND t12.groupid = 'HOUSE_LABEL'
+        LEFT JOIN t_res_comm t13 ON t1.coid = t13.oid
+        LEFT JOIN t_res_building t14 ON t1.boid = t14.oid
+        LEFT JOIN t_sa_dict_item t15 ON t14.btype = t15.dictid
+        AND t15.`status` = 1
+        AND t15.groupid = 'BUILDING_TYPE'
+        LEFT JOIN t_res_building t16 ON t1.boid = t16.oid
+        LEFT JOIN t_sa_dict_item t17 ON t16.lutype = t17.dictid
+        AND t17.`status` = 1
+        AND t17.groupid = 'LAND_USE_TYPE'
+        LEFT JOIN t_res_comm_label t111 ON t13.oid = t111.coid
+        AND t111.`status` = 1
+        LEFT JOIN t_sa_dict_item t112 ON t111.clabel = t112.dictid
+        AND t112.groupid = 'COMM_LABEL'
+        AND t112.`status` = 1
+        LEFT JOIN t_res_house_hot t113 ON t1.oid = t113.oid
+        AND t113.`status` = 1
+    </sql>
+
+  <select id="queryCustDetailByOid" resultType="cn.jufangbao.house.shhouse.dto.CustDetailDto" parameterType="String">
+  SELECT
+      t1.*, GROUP_CONCAT(DISTINCT t2.clabel) AS custlabels
+  FROM
+      t_cm_customer t1,
+      t_cm_cust_label t2
+  WHERE
+      t1.oid = t2.coid
+  AND t1.oid = #{custId}
+  </select>
+</mapper>

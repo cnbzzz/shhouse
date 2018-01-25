@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, 
+                                     initial-scale=1.0, 
+                                     maximum-scale=1.0, 
+                                     user-scalable=no">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/init.css" rel="stylesheet">
+        
+
+ 
+        <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+        <script src="js/jquery.min.js" charset="utf-8"></script>
+         
+        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+        <script src="js/bootstrap.min.js" charset="utf-8"></script>
+        <script src="js/underscore.js" charset="utf-8"></script>
+        <script src="js/assist.js" charset="utf-8"></script>
+        <script src="js/base.js" charset="utf-8"></script>
+        <title>我的带看</title>
+    </head>
+    <body>
+		<nav class="container navbar-fixed-top navbar">
+        	<div class="row clearfix navbox">
+                <div class="col-xs-1">
+                    <h4><i class="fa fa-angle-left"></i></h4>
+                </div>
+                <div class="col-xs-11">
+                    <h3 class="text-center">我的带看</h3>
+                </div>
+            </div>
+            
+		</nav>
+         
+        <div class="container mine">
+        	<div class="row clearfix  pointdata notopborder nobottomborder">
+            	<div class="col-xs-6">
+                	<p class="black all">0</p>
+                    <h4 class="gracy">合计带看（次）</h4>
+                </div>
+                <div class="col-xs-6">
+                	<p class="black week">0</p>
+                    <h4 class="gracy">近一周带看（次）</h4>
+                </div>
+                
+                <div class="col-xs-12 line"></div>
+            </div>
+        </div>
+            
+        <div class="container" id="BDTJList">
+            
+        </div>
+    </body>
+</html>
+<script id="BDitem" type="text/template">
+	<div class="row clearfix bd" onclick="showAndroidToast(<%= oid %>)">
+		<div class="col-xs-6 del">
+			<div class="pull-left">上架时间:<%= cdate %></div>
+		</div>
+		<div class="col-xs-6 text-right">
+			<h4><%= statName %></h4>
+		</div>
+		<div class="col-xs-5">
+			<img src="<%= iPath %>" class="img-responsive" />
+		</div>
+		<div class="col-xs-7 bdtext">
+			<h4><%= hname %></h4>
+			<h6>房源编号：<%= serialnum %></h6>
+			<h6><i class="fa fa-user"></i><%= custname %></h6>
+			<h6 class="hidden"><i class="fa fa-phone"></i><%= phonenum %></h6>
+		</div>
+	</div>
+</script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+	LoadBSList();
+});
+//数据准备
+</script>

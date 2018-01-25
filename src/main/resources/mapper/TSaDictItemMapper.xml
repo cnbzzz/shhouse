@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jufangbao.house.shhouse.mapper.TSaDictItemMapper">
+  <resultMap id="BaseResultMap" type="cn.jufangbao.house.shhouse.model.TSaDictItem">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="dictid" jdbcType="VARCHAR" property="dictid" />
+    <id column="groupid" jdbcType="VARCHAR" property="groupid" />
+    <result column="dictname" jdbcType="VARCHAR" property="dictname" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="cdate" jdbcType="TIMESTAMP" property="cdate" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+</mapper>

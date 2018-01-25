@@ -1,0 +1,677 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, 
+                                     initial-scale=1.0, 
+                                     maximum-scale=1.0, 
+                                     user-scalable=no">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/init.css" rel="stylesheet">
+        
+
+ 
+        <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+        <script src="js/jquery.min.js" charset="utf-8"></script>
+         
+        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+        <script src="js/bootstrap.min.js" charset="utf-8"></script>
+        <script src="js/underscore.js" charset="utf-8"></script>
+        <script src="js/jquery.o.js" charset="utf-8"></script>
+        <script src="js/assist.js" charset="utf-8"></script>
+        <script src="js/base.js" charset="utf-8"></script>
+        <title>房源详情</title>
+    </head>
+    <body class="details-body">
+    	
+        <nav class="details-navbar">
+            <div class="container">
+            <div class="row clearfix">
+            
+                <div class="col-md-2 col-xs-4 mpclear">
+                    <a class="navbar-brand" href="#"><img src="img/logo-white.png" class="img-responsive"></a>                
+                </div>
+                <div class="col-md-10 col-xs-8 mpclear">
+                    <ul class="col-md-6 list-inline menu hidden-xs hidden-sm">
+                    	<li><a href="homepage.html">首页</a></li>
+                        <li><a href="search.html?ct=0">买房</a></li>
+                        <li><a href="search.html?ct=1">租房</a></li>
+                        <li><a href="submitsalehouse.html">卖房</a></li>
+                    </ul>
+                    <div class="col-md-4 text-right checkin col-xs-12">
+                    	<i class="fa fa-phone"></i>400-888-8888                    
+                    </div>
+                    <div class="col-md-2 checkin hidden-xs hidden-sm">
+                    	<i class="fa fa-user"></i><a class="ha" href="login.html">登录</a><a href="login-check.html">注册</a>                    
+                    </div>
+                    
+                </div>
+                
+            </div>
+            </div> 
+        </nav>
+        <div class="user">
+       		<!--移动端用户数据-->
+        </div>
+       	<div class="details-searchbar">
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-md-7  col-xs-12">
+                        <div class="input-group">
+                            <input type="text" class="form-control input-lg" placeholder="请输入区域、小区名称开始查找">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default btn-lg" type="button"><i class="fa fa-search"></i></button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="col-md-5 text-right  col-xs-12 hidden-sm hidden-xs">
+                        <b><a href="#">下载APP<i class="fa fa-mobile"></i></a></b> <b><a href="javascript:;">关注微信<i class="fa fa-weixin"></i></a></b>                    
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class=" details-name">
+            
+        </div>
+        
+        <div class=" details-Bread hidden-xs hidden-sm hidden">
+         	<div class="container">
+                <div class="row clearfix">
+                    <div class="col-md-12">
+                        
+                        <ol class="breadcrumb">
+                            <li><a href="#">广州</a></li>
+                            <li><a href="#">广州买房</a></li>
+                            <li class="active">海珠买房</li>
+                            <li class="active">富力城</li>
+                            <li class="active">富力城2P组团</li>
+                            <li class="active">当前销售</li>
+                        </ol>
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="container details-details">
+            <!--details-details-->
+        </div>
+        
+        
+        
+        <div class="container details-list">
+        <div class="row clearfix">
+        <div class="col-md-8 col-xs-12 col-sm-12">
+        	<!--details-list-->
+        	<div class="row clearfix">
+            	<div class="col-xs-12">
+                    <h2>基本信息</h2>
+                </div>
+                <div class="col-xs-12 housebasedata">
+                    
+                </div>
+            </div>
+             
+            
+            <div class="row clearfix">
+            	<div class="col-xs-12">
+                    <h2>户型尺寸</h2>
+                </div>
+                <div class="col-xs-12">
+                    <div class="col-xs-6 hxcc mpclear">
+                    	
+                        <table class="table">
+                          <thead>
+                            <tr>
+                              <th>功能区</th>
+                              <th>面积</th>
+                            </tr>
+                          </thead>
+                          
+                        </table>
+
+                    </div>
+                    <div class="col-xs-6">
+                    	<img src="img/d.jpg" class=" img-responsive" id="hlipath">
+                    </div>
+                </div>
+            </div>    
+            
+            
+            <div class="row clearfix">
+            	<div class="col-xs-12">
+                    <h2>装修质检</h2>
+                </div>
+                <div class="col-xs-12 zxzj">
+                	<!--装修质检-->
+                    
+                </div>
+                
+            </div>
+            
+            
+            <div class="row clearfix">
+            	<div class="col-xs-12">
+                    <h2>水电质检</h2>
+                </div>
+                <div class="col-xs-12 sdzj">
+                	<!--水电质检-->
+                    
+                </div>
+            </div>
+            
+            
+            <div class="row clearfix">
+            	<div class="col-xs-12">
+                    <h2>家电质检</h2>
+                </div>
+                <div class="col-xs-12 jdzj">
+                    <!--家电质检-->
+                    
+                </div>
+            </div>
+            
+            
+            <div class="row clearfix imgs ggkj">
+            	<!--公共空间-->
+            </div>
+            
+            <div class="row clearfix xq">
+            	<!--小区简介-->
+            </div>
+                <!--房源数据-->
+            
+            <script src="js/echarts.min.js" charset="utf-8"></script>
+    
+    
+            <div class="row clearfix details-price">
+                <div class="col-xs-12">
+                    <h2>房贷计算</h2>
+                </div>
+                <div class="col-xs-12 fdjs">
+                <!--房贷数据-->
+                </div>
+                <div class="col-xs-12">
+                    <button type="button" class="btn btn-default  btn-block" onclick="openHouseCounter()">房贷计算器</button>
+                </div>
+            </div>
+        	<!--details-list-->		
+        </div>
+        </div>
+        </div>
+        
+        
+        
+        <div class="container details-map">
+            <div class="row clearfix">
+                <div class="col-xs-12">
+                	<h2>区位配套</h2>
+                </div>
+                <div class="col-xs-12 text-center" id="dmap">
+                	
+                	<!--map-->
+                </div>
+                <div class="col-md-4 col-xs-12 col-sm-12" id="result">
+                	<ul id="result-myTab" class="nav nav-tabs">
+                        <li class="active">
+                            <a href="#" data-toggle="tab" onClick="Lsearch(1)">
+                                 交通
+                            </a>
+                        </li>
+                        <li><a href="#" data-toggle="tab" onClick="Lsearch(2)">学校</a></li>
+                        <li><a href="#" data-toggle="tab" onClick="Lsearch(3)">医院</a></li>
+                        <li><a href="#" data-toggle="tab" onClick="Lsearch(4)">餐饮</a></li>
+                        <li><a href="#" data-toggle="tab" onClick="Lsearch(5)">银行</a></li>
+                        <li><a href="#" data-toggle="tab" onClick="Lsearch(6)">购物</a></li>
+                        <li><a href="#" data-toggle="tab" onClick="Lsearch(7)">不利</a></li>
+                    </ul>
+                    <div class="tab-content " id="result-content">
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div class="housebox">
+            <div class="container">
+                <div class="row clearfix">
+                    <div class="col-md-12 title">
+                        <h2><b>二手好房</b> </h2>
+                    </div>
+                    
+                    <div class="col-md-12 content" id="TJList">
+                        
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+        <div class="foot hidden-sm hidden-xs">
+        	<div class="container">
+                <div class="row clearfix">
+                    <div class="col-md-8 col-md-offset-3">
+                        <h5>
+                            <a href="#">关于我们</a>
+                           <a href="#"> 联系我们</a>
+                            <a href="#">加入我们</a>
+                            <a href="#">经纪人</a>
+                            <a href="#">隐私声明</a>
+                           <a href="#"> 友情链接</a>
+                            <a href="#">网站地图</a>
+                        </h5>
+                        <div class="line"></div>
+                        <h6>
+                            重庆聚泛网络科技有限责任公司 <b><i class="fa  fa-copyright"></i>copy2010-2017</b><br>
+                            网络经营许可证号 123456<b>|</b>备案登记号 粤ICP备01234656-12 <b>|</b> 客服电话 400-123-8888
+                        </h6>
+                        <p>
+                        	<i class="fa  fa-weixin"></i>
+                            <i class="fa  fa-android"></i>
+                            <i class="fa  fa-apple"></i>
+                        </p>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+        <div id="layer-photos-demo"  class="" style="height:0px;overflow:hidden;">
+        
+        
+                    <div class="ibox-content col-xs-12 mpclear" style="overflow:hidden;" id="layer-photos">
+                        <div class="carousel slide" id="carousel1">
+                            <div class="carousel-inner">
+                                
+
+                            </div>
+                            <a data-slide="prev" href="carousel.html#carousel1" class="left carousel-control">
+                                <span class="icon-prev"></span>
+                            </a>
+                            <a data-slide="next" href="carousel.html#carousel1" class="right carousel-control">
+                                <span class="icon-next"></span>
+                            </a>
+                        </div>
+                    </div>
+        
+        </div>
+        
+
+        
+        <div class="container navbar-fixed-bottom phonebottommenu hidden-md hidden-lg">
+        	<div class="row clearfix">
+            	<div class="col-xs-2 text-center"><a href="homepage.html">首页</a></div>
+                <div class="col-xs-3 text-center"><a href="search.html?ct=0">买房</a></div>
+                <div class="col-xs-2 text-center"><a href="submitsalehouse.html">卖房</a></div>
+                <div class="col-xs-3 text-center"><a href="message_list.html">消息</a></div>
+                <div class="col-xs-2 text-center"><a href="mine-follow-house.html">我</a></div>
+            </div>
+        </div>
+        
+        
+    </body>
+</html>
+<script id="detailsBody" type="text/template">
+	<div class="row clearfix">
+		<div class="col-md-8">
+			<!--video-->
+			<div class="row clearfix">
+				<ul id="myvideoTab" class="nav nav-tabs col-xs-12">
+					<li class="active col-xs-6">
+						<a href="#vr" data-toggle="tab">VR / AR 直播看房 360<sup>o</sup></a>
+					</li>
+					<li class="col-xs-6">
+						<a href="#image" data-toggle="tab">图片看房</a>
+					</li>
+					
+				</ul>
+				<div id="myTabContent" class="tab-content col-xs-12">
+					<div class="tab-pane fade in active" id="vr">
+                        <!--iframe src="http://120.76.53.1/PC/video.html" width=100% height=100%></iframe-->
+						<!--video src="../video/vrtest.mp4" poster="img/img2.png" controls="controls" autoplay="autoplay" class="dvideo" id="dvideo"></video-->
+						<img src="" style="width:100%;">
+					</div>
+					<div class="tab-pane fade" id="image">
+					<!---->
+						<%= imgList %>
+					<!---->	
+					</div>
+				</div>
+			</div>
+			<!--video-->
+		</div>
+		<div class="col-md-4 details-pro">
+			<div class="row clearfix">
+				<ul class="col-xs-12 list-inline">
+					<li class="col-xs-4"><h1><%= totalprice %></h1></li>
+					<li class="col-xs-8"><h5><%= unitprice %><br> 首付<%= downpayment %> 月供<%= monthpayment %>（供参考）<a href="#" onclick="openHouseCounter()">房贷计算</a></h5></li>
+				</ul>
+			</div>
+            <div class="row clearfix hidden-lg hidden-md">
+                <div class="col-xs-12 details-phone text-center">
+                    <i class="fa fa-phone-square"></i>400-123-8888
+                </div>
+                <div class="col-xs-12 agenttitle text-center">
+                    <h6 class="ft1" onclick="agentuser()">与您联系过的经纪人 <i class="fa fa-chevron-down"></i></h6>
+                </div>
+                <div class="col-xs-12 agentlist mpclear">
+                    
+                </div>
+                <div class="col-xs-12 details-phone text-center">
+                    
+                        <%= isFollowHouse %>
+                        <button class="btn btn-default" onclick="contr(<%= rent %>)"><i class="fa  fa-th-list"></i>添加对比</button>
+                        <br>
+                </div>
+            </div>
+			<div class="row clearfix">
+				<div class="col-xs-6 text-center">
+					<h3><%= layoutName %></h3>
+					<h5>户型</h5>
+				</div>
+				<div class="col-xs-6 text-center">
+					<h3><%= area %></h3>
+					<h5>面积</h5>
+				</div>
+			</div>
+			<div class="row clearfix">
+				<ul class="col-xs-12 list-unstyled">
+					<li><b>房源编号</b><%= serialnum %></li>
+					<li><b>小区名称</b><%= cname %></li>
+					<li><b>所在区域</b><%= anames %></li>
+					<li><b>看房时间</b>随时看房</li>
+				</ul>
+			</div>
+			<div class="row clearfix">
+				<div class="col-xs-3">
+				<br><br>
+					房源热度
+				</div>
+				<div class="col-xs-3 text-center">
+					<h3><%= browse %></h3>
+					<h5>浏览</h5>
+				</div>
+				<div class="col-xs-3 text-center">
+					<h3><%= seen %></h3>
+					<h5>看过</h5>
+				</div>
+				<div class="col-xs-3 text-center">
+					<h3><%= follow %></h3>
+					<h5>关注</h5>
+				</div>
+			</div>
+            
+			<div class="row clearfix conus hidden-xs hidden-sm">
+				<div class="col-xs-12 details-phone text-center">
+					<i class="fa fa-phone-square"></i>400-123-8888
+				</div>
+				<div class="col-xs-12 details-server text-center">
+					<h5>与您联系过的经纪人</h5>
+				</div>
+				<div class="col-xs-12 details-server agent">
+					
+				</div>
+				<div class="col-xs-12 details-phone text-center">
+					
+						<%= isFollowHouse %>
+						<button class="btn btn-default" onclick="contr(<%= rent %>)"><i class="fa  fa-th-list"></i>添加对比</button>
+						<br>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</script>
+<script id="Dname" type="text/template">
+	<div class="container">
+		<div class="row clearfix">
+			<div class="col-md-7">
+			<h1 class="mpclear"><b><%= hname %></b></h1>
+			</div>
+			<div class="col-md-5 text-right hidden-xs hidden-sm">
+				<%= isFollowHouse %><button type="button" class="btn btn-primary hidden"><i class="fa  fa-clock-o"></i>预约房源</button>
+				
+
+			</div>
+		</div>
+	</div>
+</script>
+<script id="DbaseD" type="text/template">
+	<div class="col-xs-6">
+		<ul class="list-unstyled">
+			<li><i>均价</i> <%= unitprice %></li>
+			<li><i>首付</i> <%= downpayment %></li>
+			<li><i>楼层</i> <%= floor %></li>
+			<li><i>装修</i> <%= decoName %></li>
+			<li><i>年代</i> <%= year %>年</li>
+		</ul>
+	</div>
+	<div class="col-xs-6">
+		<ul class="list-unstyled">
+			<li><i>挂牌</i> <%= cdate %></li>
+			<li><i>用途</i> <%= lutypename %></li>
+			<li><i>朝向</i> <%= orieName %></li>
+			<li><i>楼型</i> <%= btypename %></li>
+			<li><i>区域</i> <%= anames %></li>
+		</ul>
+	</div>
+</script>
+<script id="Dimg" type="text/template">
+	
+    <div class="col-xs-12">
+		<h2>公共空间</h2>
+	</div>
+	<div class="col-xs-12 ">
+		
+		<img src="<%= img1 %>" class="img-responsive" onclick="openimageList('<%= num %>')">
+		
+	</div>
+	<div class="col-xs-12">
+		<button type="button" class="btn btn-default btn-block" onclick="openimageList('<%= num %>')">查看更多图片</button>
+	</div>                
+	
+</script>
+
+<script id="Dxq" type="text/template">
+	<div class="col-xs-12">
+		<h2>小区简介</h2>
+	</div>
+	<div class="col-xs-12">
+		<p class="pull-left"><b><%= cname %></b></p>
+		<%= isFollowComm %>
+	</div>
+	<ul class="col-xs-12 list-inline">
+		<%= commPropList %>
+	</ul>
+	<div class="col-xs-12 list-inline">
+		<div class="col-xs-3 text-center">
+			<h1><b><%= salecount %></b></h1>
+			<h6>在售房源</h6>
+			
+		</div>
+		<div class="col-xs-3 text-center mpclear">
+			<h1><b><%= saledcount %></b></h1>
+			<h6>历史成交<br>均价<%= saledprice %>元</h6>
+			
+		</div>
+		<div class="col-xs-3 text-center">
+			<h1><b><%= rentcount %></b></h1>
+			<h6>在租房源</h6>
+			
+		</div>
+		<div class="col-xs-3 text-center mpclear">
+			<h1><b><%= rentedcount %></b></h1>
+			<h6>历史出租<br>均价<%= rentedprice %>元/月</h6>
+			
+		</div>
+	</div>
+	<div id="datachart" class="col-xs-12"></div>
+</script>
+
+<script id="Dloan" type="text/template">
+	
+		<div class="col-xs-4 text-center mpclear">
+			<h6>首付金额</h6>
+			<h1><b><%= downpayment %></b></h1>
+		</div>
+		<div class="col-xs-4 text-center mpclear">
+			<h6>月供金额</h6>
+			<h1><b><%= monthpayment %>元</b></h1>
+		</div>
+		<div class="col-xs-4 text-center mpclear">
+			<h6>贷款金额</h6>
+			<h1><b><%= loan %></b></h1>
+		</div>
+</script>
+<script id="TJitem" type="text/template">
+	<div class="col-md-3 col-xs-6 TJbox">
+		<a href="details.html?oid=<%= oid %>">
+		<img src="<%= iPath %>" class="img-responsive">
+		<h4><%= cname %> <%= layoutName %> <%= area %>m<sup>2</sup></h4>
+		<h5><b><%= totalprice %></b> <%= unitprice %></h5>
+		</a>
+	</div>
+</script>
+<script id="oneuser" type="text/template">
+	<div class="container">
+		<div class="row clearfix">
+			<div class="col-xs-12 phoneuser">
+				<div class="col-xs-2 mpclear">
+					<img src="<%= ipath %>" style="width:70px;">
+				</div>
+				<div class="col-xs-8">
+					<h3 class="ft2 mpclear"><%= name %></h3>
+					<h6 class="ft2"><%= phonenum %><span onclick="gomessage('<%= oid %>','<%= name %>')"><i class="fa fa-comment-o"></i>消息</span></h6>
+				</div>
+				<div class="col-xs-1 hidden-lg hidden-md">
+					
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</script>
+<script id="agent" type="text/template">
+	
+	
+		<div class="col-xs-3">
+			<img src="<%= iPath %>" class="img-responsive">
+		</div>
+		<div class="col-xs-9">
+			<b><%= shopname %></b>
+			<h5><%= scandate %>通过扫码添加</h5>
+			<h5><i class="fa fa-phone"></i><%= phonenum %><span onclick="gomessage('<%= oid %>','<%= name %>')"><i class="fa fa-comment-o"></i>消息</span></h5>
+		</div>
+	
+
+</script>
+<script src="js/detailsmap.js" charset="utf-8"></script>
+<script language="javascript" type="text/javascript" src="js/player/UtoVRPlayerGuide.js"></script>
+<script type="text/javascript">
+$(document).ready(function () {
+	
+	LoadHouseDetails();
+	LoadTJcontent();
+	LoadoneUser();
+    LoadUsertokentoid();
+	$(".details-searchbar .btn").click(function () {
+		if(getPagecoid() == ""){
+			location.href="search.html?ct="+getPageCT()+"&ss="+ escape($(".details-searchbar .form-control").val());
+		}else{
+			location.href="search.html?ct="+getPageCT()+"&token="+getPagecoid()+"&ss="+ escape($(".details-searchbar .form-control").val());
+		}
+		
+	}); 
+	//--
+	$(".details-searchbar a").eq(1).click(function () {
+		openr2();
+	});
+	//--
+	
+	startPos = 600;
+	var  endPos;
+	$(document).scroll(function(){
+			
+		 
+		if($(window).scrollTop() > startPos && $(window).scrollTop() < ($("body")[0].scrollHeight-1414) ) {
+			$('.conus').css('top','0px'); 
+			$('.conus').css('position','fixed');
+			endPos = $(window).scrollTop()//$(".details-map").offset().top;//$(".conus").offset().top
+		}
+		if($(window).scrollTop() > ($("body")[0].scrollHeight-1414)) {
+			$('.conus').css('position','absolute');
+			$('.conus').css('top',''); 
+			$(".conus").offset({top:endPos});
+		}
+		if($(window).scrollTop() < startPos) {
+			$('.conus').css('position','absolute');
+			$('.conus').css('top',''); 
+		}
+		
+		
+    	//console.log($(window).scrollTop());
+	});
+	//---
+	
+	$("#hlipath").click(function() {
+        layer.open({
+            title:false,
+            type: 1,
+            closeBtn: 0,
+            skin: 'layui-layer-nobg', //没有背景色
+            shadeClose: true,
+            content: $('#hlipath')
+        });
+    });
+});
+function contr (ct) {
+	location.href="editcontrast.html?ct="+ct+"&oid=" + getPageoid()
+}
+function agentuser () {
+//console.log(12);
+	if($(".agentlist").css("display") == "none"){
+		//$(".agenttitle").css("display","block");
+		$(".agentlist").css("display","block");
+	}else{
+		//$(".agenttitle").css("display","none");
+		$(".agentlist").css("display","none");
+	}
+}
+var messagewindow=true;
+function gomessage (id) {
+    
+    var areaw;
+    if($(window).width() <= 768) {
+        areaw = ['100%','100%'];
+    }else{
+        areaw = ['375px','600px'];
+    }
+    var urls="message.html?oid="+ userfromid +"&toid=" + id;
+    layer.open({
+        title:vpmsguser,
+        type: 2,
+        shadeClose: true,
+        shade: false,
+        content: urls,
+        offset: 'rb',
+        area:areaw,
+        isOutAnim :false  
+    });
+}
+
+function openHouseCounter (id) {
+    var urls="js/counter/fd.html";
+    layer.open({
+        title:"房贷计算器",
+        type: 2,
+        content: urls,
+        area:['100%','100%'],
+        isOutAnim :false  
+    });
+}
+//数据准备
+</script>

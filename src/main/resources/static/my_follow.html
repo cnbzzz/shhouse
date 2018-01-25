@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, 
+                                     initial-scale=1.0, 
+                                     maximum-scale=1.0, 
+                                     user-scalable=no">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/init.css" rel="stylesheet">
+        
+
+ 
+        <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+        <script src="js/jquery.min.js" charset="utf-8"></script>
+         
+        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+        <script src="js/bootstrap.min.js" charset="utf-8"></script>
+        <script src="js/underscore.js" charset="utf-8"></script>
+        <script src="js/assist.js" charset="utf-8"></script>
+        <script src="js/base.js" charset="utf-8"></script>
+        <title>我的关注</title>
+    </head>
+    <body>
+		<nav class="container navbar-fixed-top navbar">
+        	<div class="row clearfix navbox">
+                <div class="col-xs-1">
+                    <h4><i class="fa fa-angle-left"></i></h4>
+                </div>
+                <div class="col-xs-11">
+                    <h3 class="text-center">我的关注</h3>
+                </div>
+            </div>
+            
+		</nav>
+         
+        <div class="container user"  id="BDTJList">
+            
+            <!--div class="row clearfix bd">
+            	<div class="col-xs-12">
+                	上架时间：2016年12月11日   已成交
+                </div>
+            	<div class="col-xs-5">
+                	<img src="img/img2.png" class="img-responsive" />
+                </div>
+                <div class="col-xs-7 bdtext">
+        			<h4>天朗明居 高层厅出2房 视野开阔 南向带车位</h4>
+                    <h6>2室1厅/116m2/东南/富力天朗</h6>
+                    <p><span class="label label-default b1">满五年</span><span class="label label-default b2">近地铁</span><span class="label label-default b3">医院</span></p>
+                    <h6><b>245万</b> 28920元/平米</h6>
+                </div>
+            </div-->
+            
+        </div>
+    </body>
+</html>
+<script id="BDitem" type="text/template">
+	<div class="row clearfix bd" onclick="showAndroidToast(<%= oid %>)">
+		<div class="col-xs-12 text-right del">
+			<div class="pull-left">上架时间:<%= cdate %></div>
+			<i class="fa fa-trash-o" onclick="delfollow(<%= oid %>,<%= rent %>)"></i>
+		</div>
+		<div class="col-xs-5">
+			<img src="<%= iPath %>" class="img-responsive" />
+		</div>
+		<div class="col-xs-7 bdtext">
+			<h4><%= hname %></h4>
+			<h6><%= layoutName %>/<%= area %>/<%= orieName %>/<%= cname %></h6>
+			<p><%= hlabelNames %></p>
+		</div>
+	</div>
+</script>
+
+<script id="BDvitem" type="text/template">
+	<div class="row clearfix bd">
+		<div class="col-xs-12 text-right del">
+			<div class="pull-left">上架时间:<%= cdate %></div>
+			<i class="fa fa-trash-o"></i>
+		</div>
+		<div class="col-xs-5">
+			<img src="<%= iPath %>" class="img-responsive" />
+		</div>
+		<div class="col-xs-7 bdtext">
+			<h4>富力城2拍组团</h4>
+			<h6>沙坪坝-大学城</h6>
+			<h6>2012年件|塔楼/板房</h6>
+			<h6>出售25 | 出租 21 </h6>
+		</div>
+	</div>
+</script>
+
+<script type="text/javascript">
+$(document).ready(function () {
+	LoadFDList();
+});
+//数据准备
+</script>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, 
+                                     initial-scale=1.0, 
+                                     maximum-scale=1.0, 
+                                     user-scalable=no">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/init.css" rel="stylesheet">
+        
+
+ 
+        <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+        <script src="js/jquery.min.js" charset="utf-8"></script>
+         
+        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+        <script src="js/bootstrap.min.js" charset="utf-8"></script>
+        <script src="js/underscore.js" charset="utf-8"></script>
+        <script src="js/assist.js" charset="utf-8"></script>
+        <script src="js/base.js" charset="utf-8"></script>
+        <title>我的客户</title>
+    </head>
+    <body>
+		<nav class="container navbar-fixed-top navbar">
+        	<div class="row clearfix navbox">
+                <div class="col-xs-1">
+                    <h4><i class="fa fa-angle-left"></i></h4>
+                </div>
+                <div class="col-xs-11">
+                    <h3 class="text-center">我的客户</h3>
+                </div>
+            </div>
+            
+		</nav>
+         
+        <div class="container user" id="BDTJList">
+            
+            
+            <!--div class="row clearfix bd">
+            	
+            	<div class="col-xs-4">
+                	<img src="img/face.jpg" class="img-responsive" />
+                </div>
+                <div class="col-xs-8 bdtext">
+        			<h2>王美丽</h2>
+                    <h6><i class="fa fa-mobile-phone"></i>137-8888-8888</h6>
+                    <p><span class="label label-default b1">A类客户</span><span class="label label-default b2">富力</span><span class="label label-default b3">看三房</span><span class="label label-default b3">漂亮</span><span class="label label-default b3">儿子</span></p>
+                </div>
+                <div class="col-xs-12">
+                	<i class="fa  fa-phone"></i>电话 <i class="fa  fa-comment-o"></i>消息<i class="fa fa-trash-o"> </i>删除
+                </div>
+            </div-->
+            
+        </div>
+    </body>
+</html>
+<script id="BDitem" type="text/template">
+
+	<div class="row clearfix bd">
+			
+		<div class="col-xs-4" onclick="showAndroidloadPage('my_customerinfo.html?coid=<%= oid %>&token='+getPageaoid())">
+			<img src="<%= iPath %>" class="img-responsive" />
+		</div>
+		<div class="col-xs-8 bdtext" onclick="showAndroidloadPage('my_customerinfo.html?coid=<%= oid %>&token='+getPageaoid())">
+			<h2><%= name %></h2>
+			<h6><i class="fa fa-mobile-phone"></i><%= phonenum %></h6>
+			<p><%= clabels %></p>
+		</div>
+		<div class="col-xs-12 text-right">
+			<span onclick="showAndroidCall('<%= phonenum %>')"><i class="fa  fa-phone"></i>电话</span> <span onclick="Androidtalktocust('<%= oid %>')"><i class="fa  fa-comment-o"></i>消息</span> <i class="fa fa-trash-o"> </i>删除
+		</div>
+	</div>
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function () {
+	LoadCUList();
+});
+//数据准备
+</script>

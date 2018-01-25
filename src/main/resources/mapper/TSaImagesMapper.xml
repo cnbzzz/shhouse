@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jufangbao.house.shhouse.mapper.TSaImagesMapper">
+  <resultMap id="BaseResultMap" type="cn.jufangbao.house.shhouse.model.TSaImages">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="oid" jdbcType="VARCHAR" property="oid" />
+    <result column="igroupoid" jdbcType="VARCHAR" property="igroupoid" />
+    <result column="iname" jdbcType="VARCHAR" property="iname" />
+    <result column="smipath" jdbcType="VARCHAR" property="smipath" />
+    <result column="ipath" jdbcType="VARCHAR" property="ipath" />
+    <result column="itype" jdbcType="VARCHAR" property="itype" />
+    <result column="sort" jdbcType="INTEGER" property="sort" />
+    <result column="isource" jdbcType="VARCHAR" property="isource" />
+    <result column="cdate" jdbcType="TIMESTAMP" property="cdate" />
+    <result column="cuoid" jdbcType="VARCHAR" property="cuoid" />
+    <result column="status" jdbcType="INTEGER" property="status" />
+  </resultMap>
+
+
+  <select id="selectByGroupId" parameterType="Long" resultMap="BaseResultMap">
+    select * from t_sa_images where igroupoid = #{oid,jdbcType=BIGINT}
+  </select>
+
+</mapper>

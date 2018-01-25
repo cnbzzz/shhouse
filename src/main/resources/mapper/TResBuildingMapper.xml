@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.jufangbao.house.shhouse.mapper.TResBuildingMapper">
+  <resultMap id="BaseResultMap" type="cn.jufangbao.house.shhouse.model.TResBuilding">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="oid" jdbcType="VARCHAR" property="oid" />
+    <result column="coid" jdbcType="VARCHAR" property="coid" />
+    <result column="bname" jdbcType="VARCHAR" property="bname" />
+    <result column="floor" jdbcType="BIGINT" property="floor" />
+    <result column="igroupoid" jdbcType="VARCHAR" property="igroupoid" />
+    <result column="icount" jdbcType="BIGINT" property="icount" />
+    <result column="cuoid" jdbcType="VARCHAR" property="cuoid" />
+    <result column="cdate" jdbcType="TIMESTAMP" property="cdate" />
+    <result column="btype" jdbcType="VARCHAR" property="btype" />
+    <result column="lutype" jdbcType="VARCHAR" property="lutype" />
+    <result column="status" jdbcType="VARCHAR" property="status" />
+  </resultMap>
+</mapper>

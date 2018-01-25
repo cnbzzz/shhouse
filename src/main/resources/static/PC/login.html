@@ -1,0 +1,208 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, 
+                                     initial-scale=1.0, 
+                                     maximum-scale=1.0, 
+                                     user-scalable=no">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/init.css" rel="stylesheet">
+        
+
+ 
+        <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+        <script src="js/jquery.min.js" charset="utf-8"></script>
+         
+        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+        <script src="js/bootstrap.min.js" charset="utf-8"></script>
+        <script src="js/underscore.js" charset="utf-8"></script>
+        <script src="js/jquery.o.js" charset="utf-8"></script>
+        <script src="js/assist.js" charset="utf-8"></script>
+        <script src="js/base.js" charset="utf-8"></script>
+
+        <script src="js/jquery.validate.min.js"></script>
+        <script src="js/validate.messages_zh.js"></script>
+        <title>登录</title>
+    </head>
+    <body class="login-body">
+    	
+        <nav class="login-navbar">
+            <div class="container">
+            <div class="row clearfix">
+            
+                <div class="col-xs-12 text-right">
+                    <a href="homepage.html"><p class="ft1 mpclear">返回首页<i class="fa fa-arrow-right "></i></p></a>
+                </div>
+                                
+            </div>
+            </div> 
+        </nav>
+        
+       	
+        <div class="container login-page">
+            <div class="row clearfix">
+                <div class="col-md-8 col-md-offset-2">
+                <!--content-->
+                    <div class="row clearfix">
+                        <div class="col-xs-6">
+                            <h1>登录</h1>
+                        </div>
+                        <div class="col-xs-6 text-right">
+                            <a href="login-check.html"><h5 class="v">没有账号？马上注册</h5></a>
+                        </div>
+                    </div>
+                    <div class="row clearfix">
+                        <form id="webForm">
+                        <div class="col-md-12">
+                        	<br>
+                        	<div class="input-group">
+                                <span class="input-group-addon"><i class="fa  fa-mobile-phone "></i></span>
+                                <input type="text" class="form-control input-lg" name="handphone" id="handphone" placeholder="请输入手机号">
+                            </div>
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="col-md-12">
+                        	<br>
+                        	<div class="input-group">
+                                <span class="input-group-addon"><i class="fa   fa-lock  "></i></span>
+                                <input type="password" class="form-control input-lg" name="password" id="password" placeholder="请输入密码">
+                            </div>
+                            <span class="help-block"></span>
+                        </div>
+                        <div class="col-md-12">
+                        	<br>
+                        		<a href="login-forget.html"><h5 class="text-right">忘记密码</h5></a>
+                            <br>
+                        </div>
+                        <div class="col-md-12">
+                        	<button  type="submit" class="btn btn-primary btn-block">登录</button>
+                        </div>
+                        </form>
+                    </div>
+                <!--content-->
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        
+        
+        <div class="foot hidden-sm hidden-xs hidden-md hidden-lg">
+        	<div class="container">
+                <div class="row clearfix">
+                    <div class="col-md-8 col-md-offset-3">
+                        <h5>
+                            <a href="#">关于我们</a>
+                           <a href="#"> 联系我们</a>
+                            <a href="#">加入我们</a>
+                            <a href="#">经纪人</a>
+                            <a href="#">隐私声明</a>
+                           <a href="#"> 友情链接</a>
+                            <a href="#">网站地图</a>
+                        </h5>
+                        <div class="line"></div>
+                        <h6>
+                            重庆聚泛网络科技有限责任公司 <b><i class="fa  fa-copyright"></i>copy2010-2017</b><br>
+                            网络经营许可证号 123456<b>|</b>备案登记号 粤ICP备01234656-12 <b>|</b> 客服电话 400-123-8888
+                        </h6>
+                        <p>
+                        	<i class="fa  fa-weixin"></i>
+                            <i class="fa  fa-android"></i>
+                            <i class="fa  fa-apple"></i>
+                        </p>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div class="container navbar-fixed-bottom phonebottommenu hidden-md hidden-lg">
+        	<div class="row clearfix">
+            	<div class="col-xs-2 text-center"><a href="homepage.html">首页</a></div>
+                <div class="col-xs-3 text-center"><a href="search.html?ct=0">买房</a></div>
+                <div class="col-xs-2 text-center"><a href="submitsalehouse.html">卖房</a></div>
+                <div class="col-xs-3 text-center"><a href="message_list.html">消息</a></div>
+                <div class="col-xs-2 text-center ac"><a href="mine-follow-house.html">我</a></div>
+            </div>
+        </div>
+        
+        
+    </body>
+</html>
+<script id="BDitem" type="text/template">
+	<div class="row clearfix bd">
+		<div class="col-xs-5">
+			<img src="<%= iPath %>" class="img-responsive" />
+		</div>
+		<div class="col-xs-7 bdtext">
+			<h4><%= hname %></h4>
+			<h6><%= layoutName %>/<%= area %>/<%= orieName %>/<%= cname %></h6>
+			<p><%= hlabelNames %></p>
+			<h6><b><%= totalprice %></b><%= unitprice %></h6>
+		</div>
+		<div class="col-xs-12 text-right del">
+			<i class="fa fa-trash-o"></i>
+		</div>
+	</div>
+</script>
+
+<script id="TJitem" type="text/template">
+	<div class="row clearfix tj">
+		<div class="col-xs-12">
+			<img src="<%= iPath %>" class="img-responsive" />
+		</div>
+		<div class="col-xs-12 text-right tjtipnum">
+			<span class="badge">+<%= icount %></span>
+		</div>
+		<div class="col-xs-12 tjtitle">
+			<div class="col-xs-12 tjtitletext">
+				<p><b><%= totalprice %></b> <%= unitprice %> <%= layoutName %>/<%= area %>/<%= orieName %></p>
+				<h6><%= hname %></h6>
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/javascript">
+$(document).ready(function () {
+	phonebottommenu();
+	
+    var validator = $("#webForm").validate({
+        rules:{
+            handphone:{
+                required:true,
+                number:true,
+                rangelength:[11,11]
+            },
+            password:{
+                required:true,
+                minlength:3
+            }
+        },
+        messages:{
+            handphone:{
+                required: "手机号不能为空",
+                number: "手机号是11位数字",
+                rangelength: "手机号是11位数字"
+            },
+            password:{
+                required: "密码不能为空",
+                minlength: "密码不能小于6位"
+            }
+        },
+        submitHandler:function(form){
+            userlogin();
+        },
+        errorPlacement: function(error, element) { 
+            error.appendTo(element.parent().next()); 
+        }
+    }) 
+
+});
+//数据准备
+</script>
+

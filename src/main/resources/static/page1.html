@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="width=device-width, 
+                                     initial-scale=1.0, 
+                                     maximum-scale=1.0, 
+                                     user-scalable=no">
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link href="css/font-awesome.min.css" rel="stylesheet">
+        <link href="css/init.css" rel="stylesheet">
+        
+
+ 
+        <!-- jQuery文件。务必在bootstrap.min.js 之前引入 -->
+        <script src="js/jquery.min.js" charset="utf-8"></script>
+         
+        <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+        <script src="js/bootstrap.min.js" charset="utf-8"></script>
+        <script src="js/underscore.js" charset="utf-8"></script>
+        <script src="js/assist.js" charset="utf-8"></script>
+        <script src="js/base.js" charset="utf-8"></script>
+        <title>房源</title>
+    </head>
+    <body>
+		<div class="container">
+        	<div class="row clearfix lmname">
+                <div class="col-xs-6">
+        			<h1>推荐房源</h1>
+                </div>
+                <div class="col-xs-6">
+        			<h5 class="text-right" onClick="showAndroidMore()">更多<i class="fa fa-angle-right"></i></h5>
+                </div>
+            </div>
+         </div>
+         
+         <div class="container" id="TJList">
+            <!--div class="row clearfix tj">
+            	<div class="col-xs-12">
+                	<img src="img/img1.png" class="img-responsive" />
+                </div>
+                <div class="col-xs-12 text-right tjtipnum">
+        			<span class="badge">+50</span>
+                </div>
+                <div class="col-xs-12 tjtitle">
+                    <div class="col-xs-12 tjtitletext">
+                        <p><b>245万</b> 28920元/平 2室1厅/116m2/东南</p>
+                        <h6>天朗明居 高层厅出2房 视野开阔 南向带车位</h6>
+                    </div>
+                </div>
+            </div-->
+            
+            
+        </div>
+        
+        <div class="container">
+        	<div class="row clearfix lmname">
+                <div class="col-xs-6">
+        			<h1>本地房源</h1>
+                </div>
+                <div class="col-xs-6">
+        			<h5 class="text-right" onClick="showAndroidMore()">更多<i class="fa fa-angle-right"></i></h5>
+                </div>
+            </div>
+        </div>
+        
+        <div  class="container" id="BDTJList">   
+            <!--div class="row clearfix bd">
+            	<div class="col-xs-5">
+                	<img src="img/img2.png" class="img-responsive" />
+                </div>
+                <div class="col-xs-7 bdtext">
+        			<h4>天朗明居 高层厅出2房 视野开阔 南向带车位</h4>
+                    <h6>2室1厅/116m2/东南/富力天朗</h6>
+                    <p><span class="label label-default b1">满五年</span><span class="label label-default b2">近地铁</span><span class="label label-default b3">医院</span></p>
+                    <h6><b>245万</b> 28920元/平米</h6>
+                </div>
+                <div class="col-xs-12 text-right del">
+                	<i class="fa fa-trash-o"></i>
+                </div>
+            </div-->
+            
+            
+        </div>
+        
+    </body>
+</html>
+<script id="BDitem" type="text/template">
+	<div class="row clearfix bd" onclick="showAndroidToast('<%= oid %>')">
+		<div class="col-xs-5">
+			<img src="<%= iPath %>" class="img-responsive" />
+		</div>
+		<div class="col-xs-7 bdtext">
+			<h4><%= hname %></h4>
+			<h6><%= layoutName %>/<%= area %>/<%= orieName %>/<%= cname %></h6>
+			<p><%= hlabelNames %></p>
+			<h6><b><%= totalprice %></b><%= unitprice %></h6>
+		</div>
+		<div class="col-xs-12 text-right del hidden">
+			<i class="fa fa-trash-o"></i>
+		</div>
+	</div>
+</script>
+
+<script id="TJitem" type="text/template">
+	<div class="row clearfix tj" onclick="showAndroidToast('<%= oid %>')">
+		<div class="col-xs-12">
+			<img src="<%= iPath %>" class="img-responsive" />
+		</div>
+		<div class="col-xs-12 text-right tjtipnum">
+			<span class="badge">+<%= icount %></span>
+		</div>
+		<div class="col-xs-12 tjtitle">
+			<div class="col-xs-12 tjtitletext">
+				<p><b><%= totalprice %></b> <%= unitprice %>&nbsp;&nbsp;&nbsp;&nbsp;<%= layoutName %>/<%= area %>/<%= orieName %></p>
+				<h6><%= hname %></h6>
+			</div>
+		</div>
+	</div>
+</script>
+<script type="text/javascript">
+$(document).ready(function () {
+
+	LoadTJcontent();
+	//LoadBDcontent(Android.getLocalHouse());
+    LoadBDcontent('"3100e7d9-3852-11e7-9a1f-00163e068506","cd254c85-274f-11e7-9a1f-00163e068506"');
+
+    
+	
+});
+//数据准备
+</script>
